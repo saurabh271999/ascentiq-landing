@@ -10,17 +10,22 @@ import {
 import logo from "/logo2.png";
 import curve1 from "/bannercurves1.png";
 import curve2 from "/bannercurves2.png";
+import Services from "./Services";
+import Testimonials from "./Testimonials";
+import "./App.css";
 
 function App() {
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
+    "Full Name": "",
     workEmail: "",
     phone: "",
     companyName: "",
     companySize: "",
     helpText: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success' or 'error'
+  const [submitMessage, setSubmitMessage] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,9 +35,65 @@ function App() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const scrollToForm = () => {
+    const formElement = document.getElementById("contact-form");
+    if (formElement) {
+      formElement.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+    setSubmitMessage("");
+
+    try {
+      const response = await fetch(
+        "https://saneindia-backend.onrender.com/api/v1/email/contact",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: formData["Full Name"],
+            email: formData.workEmail,
+            phone: formData.phone,
+            companyName: formData.companyName,
+            companySize: formData.companySize,
+            message: formData.helpText,
+          }),
+        }
+      );
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus("success");
+        setSubmitMessage("Thank you! Your message has been sent successfully.");
+        // Reset form
+        setFormData({
+          "Full Name": "",
+          workEmail: "",
+          phone: "",
+          companyName: "",
+          companySize: "",
+          helpText: "",
+        });
+      } else {
+        setSubmitStatus("error");
+        setSubmitMessage(
+          data.message || "Failed to send message. Please try again."
+        );
+      }
+    } catch (error) {
+      setSubmitStatus("error");
+      setSubmitMessage("An error occurred. Please try again later.");
+      console.error("Error submitting form:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   // Reusable input field styles - easily adjustable
@@ -73,68 +134,70 @@ function App() {
     },
   };
 
+  // Textarea (multiline) styles
+  const textareaStyles = {
+    "& .MuiOutlinedInput-root": {
+      "&.Mui-focused fieldset": {
+        borderColor: "#ff621a",
+      },
+      alignItems: "flex-start", // Align to top for multiline
+      padding: "0", // Remove default padding
+    },
+    "& .MuiOutlinedInput-input": {
+      padding: "14px", // Proper padding for textarea
+      textAlign: "left", // Left align text
+    },
+    "& .MuiInputLabel-root": {
+      "&.Mui-focused": {
+        color: "#ff621a",
+      },
+      "&.MuiInputLabel-shrink": {
+        transform: "translate(14px, -9px) scale(0.75)",
+      },
+    },
+  };
+
   return (
-    <div className="min-h-screen flex flex-col relative overflow-hidden bg-gradient-to-br from-[#cc4e15] via-[#ff621a] to-[#cc4e15]">
+    <div className="app-container">
       {/* Header */}
-      <header
-        style={{ paddingLeft: "100px", paddingTop: "20px" }}
-        className="bg-transparent px-16 py-4 lg:px-12 lg:py-6 sticky top-0 z-20"
-      >
-        <div className="max-w-7xl mx-auto">
-          <img
-            src={logo}
-            alt="AscentIQ Logo"
-            className="h-8 lg:h-10 object-contain"
-          />
+      <header className="app-header">
+        <div className="header-content">
+          <img src={logo} alt="AscentIQ Logo" className="header-logo" />
+          <div className="header-contact">
+            <span className="header-email">✉ help@ascentiqservices.com</span>
+            <span className="header-phone">📞 Phone Number: 0120-6459900</span>
+          </div>
         </div>
       </header>
 
       {/* Main Content - Single Gradient Background */}
-      <div className="flex flex-col lg:flex-row flex-1 relative">
+      <div className="main-content">
         {/* Background Curve Images */}
-        <div
-          className="absolute inset-0 pointer-events-none overflow-hidden"
-          style={{ zIndex: 1 }}
-        >
-          <img
-            src={curve1}
-            alt=""
-            className="absolute bottom-0 left-0 w-full h-auto object-contain opacity-20"
-            style={{ maxHeight: "70%" }}
-          />
-          <img
-            src={curve2}
-            alt=""
-            className="absolute top-0 right-0 w-full h-auto object-contain opacity-20"
-            style={{ maxHeight: "60%" }}
-          />
+        <div className="background-curves">
+          <img src={curve1} alt="" className="curve-image curve-1" />
+          <img src={curve2} alt="" className="curve-image curve-2" />
         </div>
 
         {/* Left Section */}
-        <div
-          style={{ paddingLeft: "100px" }}
-          className="pl-8 pr-8 py-12 lg:pl-20 lg:pr-16 lg:py-20 lg:w-1/2 flex flex-col justify-center relative z-10"
-        >
+        <div className="left-section">
           {/* About Ascent iQ Services */}
-          <div className="mb-6">
-            <h1 className="text-white text-2xl lg:text-3xl font-bold tracking-tight mb-4">
-              About Ascent iQ Services
-            </h1>
+          <div>
+            <h1 className="about-heading">About Ascent iQ Services</h1>
           </div>
 
           {/* Body Text */}
-          <div className="mb-12">
-            <p className="text-white text-base leading-relaxed max-w-2xl mb-4">
+          <div className="about-text-container">
+            <p className="about-text">
               With a legacy spanning over a decade, Ascent iQ Staffing Solutions
               has emerged as a pivotal player in the recruitment landscape,
               showcasing a robust presence nationally and internationally.
             </p>
-            <p className="text-white text-base leading-relaxed max-w-2xl mb-4">
+            <p className="about-text">
               Our enduring commitment revolves around offering comprehensive HR
               solutions, encompassing the entire spectrum from recruitment and
               turnkey staffing to HR services and executive search.
             </p>
-            <p className="text-white text-base leading-relaxed max-w-2xl">
+            <p className="about-text" style={{ marginBottom: 0 }}>
               The backbone of our success lies in the collective expertise of
               seasoned professionals who not only facilitate job placements but
               also provide invaluable guidance in establishing effective HR
@@ -144,50 +207,57 @@ function App() {
 
           {/* Industry Recognition */}
           <div>
-            <p
-              style={{ paddingBottom: "10px" }}
-              className="text-orange-300 text-sm font-semibold tracking-wider uppercase mb-6"
-            >
-              INDUSTRY RECOGNITION
-            </p>
-            <div className="flex flex-wrap gap-6">
+            <p className="industry-recognition">INDUSTRY RECOGNITION</p>
+            <div className="badges-container">
               {/* Badge 1 */}
-              <div className="bg-white rounded-lg p-4 w-48">
-                <div className="flex flex-col items-center text-center">
-                  <div className="text-3xl font-bold text-[#ff621a] mb-2">
-                    G
+              <div className="badge">
+                <div className="badge-content">
+                  <div className="badge-icon">10+</div>
+                  <div className="badge-text">
+                    Years of Excellence
+                    <br />
+                    in Recruitment
                   </div>
-                  <div className="bg-[#ff621a] text-white text-xs font-semibold px-3 py-1 rounded mt-2">
-                    Leader WINTER 2022
-                  </div>
+                  <div className="badge-description">Proven Track Record</div>
                 </div>
               </div>
 
               {/* Badge 2 */}
-              <div className="bg-white rounded-lg p-4 w-48">
-                <div className="flex flex-col items-center text-center">
-                  <div className="text-4xl font-bold text-[#ff621a] mb-2">
-                    500
-                  </div>
-                  <div className="text-xs text-gray-700 text-center">
-                    Technology Fast 500 2021
+              <div className="badge">
+                <div className="badge-content">
+                  <div className="badge-icon badge-icon-large">100+</div>
+                  <div className="badge-text">
+                    Global Brands
                     <br />
-                    NORTH AMERICA Deloitte.
+                    Trusted Us
                   </div>
+                  <div className="badge-description">Trusted Partner</div>
                 </div>
               </div>
 
               {/* Badge 3 */}
-              <div className="bg-white rounded-lg p-4 w-48">
-                <div className="flex flex-col items-center text-center">
-                  <div className="text-3xl text-[#ff621a] mb-2">✓</div>
-                  <div className="text-xs text-gray-700 text-center">
-                    2020 RealCDP CERTIFIED
+              <div className="badge">
+                <div className="badge-content">
+                  <div className="badge-icon">✓</div>
+                  <div className="badge-text">
+                    IT Consulting
                     <br />
-                    CUSTOMER DATA PLATFORM
-                    <br />
-                    INSTITUTE
+                    Noida, India
                   </div>
+                  <div className="badge-description">Expert IT Solutions</div>
+                </div>
+              </div>
+
+              {/* Badge 4 */}
+              <div className="badge">
+                <div className="badge-content">
+                  <div className="badge-icon">🌟</div>
+                  <div className="badge-text">
+                    Comprehensive HR
+                    <br />
+                    Solutions
+                  </div>
+                  <div className="badge-description">End-to-End Services</div>
                 </div>
               </div>
             </div>
@@ -195,32 +265,21 @@ function App() {
         </div>
 
         {/* Right Section - Form */}
-        <div
-          style={{ paddingLeft: "100px" }}
-          className="px-4 py-12 lg:px-8 lg:py-20 lg:w-1/2 flex items-center relative z-10"
-        >
-          <div className="w-full max-w-lg mx-auto">
-            <div
-              style={{ padding: "16px", minHeight: "450px" }}
-              className="bg-white px-4 py-8 lg:px-12 lg:py-10 shadow-xl"
-            >
-              <h3
-                style={{ marginBottom: "20px" }}
-                className="text-[#ff621a] text-xl font-bold"
-              >
-                SCHEDULE A DEMO
-              </h3>
+        <div className="right-section">
+          <div className="form-wrapper" id="contact-form">
+            <div className="form-container">
+              <h3 className="form-title">SCHEDULE A DEMO</h3>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="form">
                 {/* First Row */}
-                <div className="grid grid-cols-1 gap-4">
+                <div className="form-fields">
                   <TextField
                     required
                     fullWidth
                     id="Full Name"
                     name="Full Name"
                     label="Full Name"
-                    value={formData.firstName}
+                    value={formData["Full Name"]}
                     onChange={handleChange}
                     sx={inputFieldStyles}
                   />
@@ -295,38 +354,50 @@ function App() {
                     rows={3}
                     value={formData.helpText}
                     onChange={handleChange}
-                    sx={inputFieldStyles}
+                    sx={textareaStyles}
                   />
                 </div>
 
                 {/* Textarea */}
 
                 {/* Privacy Policy */}
-                <p
-                  style={{ padding: "10px" }}
-                  className="text-sm text-gray-600"
-                >
+                <p className="privacy-text">
                   By submitting this form you agree to receive email, text and
                   promotional communications from AscentIQ related to products
                   and services in accordance with AscentIQ's{" "}
-                  <a
-                    href="#"
-                    className="text-[#ff621a] hover:text-[#e55517] underline"
-                  >
+                  <a href="#" className="privacy-link">
                     privacy policy
                   </a>
                   .
                 </p>
+
+                {/* Status Message */}
+                {submitStatus && (
+                  <div
+                    className={`status-message ${
+                      submitStatus === "success"
+                        ? "status-success"
+                        : "status-error"
+                    }`}
+                  >
+                    {submitMessage}
+                  </div>
+                )}
 
                 {/* Submit Button */}
                 <Button
                   type="submit"
                   fullWidth
                   variant="contained"
+                  disabled={isSubmitting}
                   sx={{
                     backgroundColor: "#ff621a",
                     "&:hover": {
                       backgroundColor: "#e55517",
+                    },
+                    "&:disabled": {
+                      backgroundColor: "#ff621a",
+                      opacity: 0.6,
                     },
                     py: 1.5,
                     fontSize: "1rem",
@@ -334,7 +405,7 @@ function App() {
                     textTransform: "none",
                   }}
                 >
-                  Submit
+                  {isSubmitting ? "Sending..." : "Submit"}
                 </Button>
               </form>
             </div>
@@ -342,7 +413,83 @@ function App() {
         </div>
       </div>
 
-      {/* Partner Logos Section */}
+      {/* Business Partners Section */}
+      <div className="business-partners">
+        <div className="partners-container">
+          <h3 className="partners-heading">Trusted by 100 ++ Global Brands</h3>
+          <div className="partners-grid">
+            <div className="partner-logo">
+              <img
+                src="https://www.ascentiqservices.com/clients_logo/1707467051.jpg"
+                alt="Business Partner"
+              />
+            </div>
+            <div className="partner-logo">
+              <img
+                src="https://www.ascentiqservices.com/clients_logo/1707467075.jpg"
+                alt="Business Partner"
+              />
+            </div>
+            <div className="partner-logo">
+              <img
+                src="https://www.ascentiqservices.com/clients_logo/1707467101.jpg"
+                alt="Business Partner"
+              />
+            </div>
+            <div className="partner-logo">
+              <img
+                src="https://www.ascentiqservices.com/clients_logo/1707467125.jpg"
+                alt="Business Partner"
+              />
+            </div>
+            <div className="partner-logo">
+              <img
+                src="https://www.ascentiqservices.com/clients_logo/1707467151.jpg"
+                alt="Business Partner"
+              />
+            </div>
+            <div className="partner-logo">
+              <img
+                src="https://www.ascentiqservices.com/clients_logo/1707467195.jpg"
+                alt="Business Partner"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Services Section */}
+      <div className="services-section">
+        <div className="services-wrapper">
+          <Services />
+        </div>
+      </div>
+
+      {/* Business Data Image */}
+      <div className="business-data-section">
+        <img
+          src="/bussinessdata.png"
+          alt="Business Data"
+          className="business-data-image"
+        />
+      </div>
+
+      {/* Testimonials Section */}
+      <Testimonials />
+
+      {/* Call to Action Section */}
+      <div className="cta-section">
+        <div className="cta-container">
+          <h2 className="cta-title">Find Your Perfect Job Match Today!</h2>
+          <h3 className="cta-subtitle">Connecting Talent, Building Careers</h3>
+          <p className="cta-description">
+            Welcome to Ascent iQ Services, where talent meets opportunity.
+          </p>
+          <button className="cta-button" onClick={scrollToForm}>
+            Connect Now
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,42 +1,734 @@
-#root {
+/* App.css - Mobile Responsive Styles */
+
+.app-container {
+  min-height: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(to bottom right, #cc4e15, #ff621a, #cc4e15);
+}
+
+/* Header Styles */
+.app-header {
+  background: transparent;
+  padding: 6px 2px 0 2px;
+  margin: 0 !important;
+  margin-bottom: 0 !important;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  line-height: 1;
+}
+
+.header-content {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.header-logo {
+  height: 32px;
+  object-fit: contain;
+}
+
+.header-contact {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  color: white;
+  font-size: 14px;
+}
+
+.header-email,
+.header-phone {
+  white-space: nowrap;
+}
+
+/* Main Content */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+  margin: 0 !important;
+  margin-top: 0 !important;
+  padding: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Background Curves */
+.background-curves {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.curve-image {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.2;
+}
+
+.curve-1 {
+  bottom: 0;
+  left: 0;
+  max-height: 70%;
+}
+
+.curve-2 {
+  top: 0;
+  right: 0;
+  max-height: 60%;
+}
+
+/* Left Section */
+.left-section {
+  padding-top: 10px;
+  padding-right: 32px;
+  padding-bottom: 20px;
+  padding-left: 32px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+}
+
+.about-heading {
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.about-text-container {
+  margin-bottom: 24px;
+}
+
+.about-text {
+  color: white;
+  font-size: 16px;
+  line-height: 1.75;
+  max-width: 42rem;
+  margin-bottom: 16px;
+}
+
+/* Industry Recognition */
+.industry-recognition {
+  padding-bottom: 10px;
+  color: #fdba74;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.badges-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 16px;
+  justify-content: flex-start;
+}
+
+.badge {
+  background: white;
+  border-radius: 8px;
+  padding: 12px;
+  width: 160px;
+  flex-shrink: 0;
+}
+
+.badge-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.badge-icon {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ff621a;
+  margin-bottom: 6px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.badge-icon-large {
+  font-size: 28px;
+}
+
+.badge-label {
+  background: #ff621a;
+  color: white;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 4px;
+  margin-top: 4px;
+}
+
+.badge-text {
+  font-size: 10px;
+  color: #374151;
+  text-align: center;
+  line-height: 1.3;
+  margin-top: 4px;
+}
+
+.badge-description {
+  font-size: 9px;
+  color: #6b7280;
+  text-align: center;
+  margin-top: 6px;
+  line-height: 1.2;
+}
+
+/* Right Section - Form */
+.right-section {
+  padding-top: 0;
+  padding-right: 32px;
+  padding-bottom: 20px;
+  padding-left: 32px;
+  margin-top: -40px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.form-wrapper {
+  width: 100%;
+  max-width: 512px;
+  margin: 0 auto;
+}
+
+.form-container {
+  background: white;
+  padding: 20px 16px;
+  min-height: 350px;
+}
+
+.form-title {
+  color: #ff621a;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-fields {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.privacy-text {
+  font-size: 14px;
+  color: #4b5563;
+  padding: 10px;
+}
+
+.privacy-link {
+  color: #ff621a;
+  text-decoration: none;
+}
+
+.privacy-link:hover {
+  color: #e55517;
+}
+
+.status-message {
+  font-size: 14px;
+  padding: 12px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.status-success {
+  background: #f0fdf4;
+  color: #15803d;
+}
+
+.status-error {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+/* Call to Action Section */
+.cta-section {
+  padding: 80px 20px;
+  background: linear-gradient(to bottom right, #cc4e15, #ff621a, #cc4e15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cta-container {
+  max-width: 800px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.cta-title {
+  font-size: 42px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 16px;
+  font-family: "Poppins", sans-serif;
+  line-height: 1.2;
+}
+
+.cta-subtitle {
+  font-size: 28px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+.cta-description {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 32px;
+  line-height: 1.6;
+  font-family: "Poppins", sans-serif;
+}
+
+.cta-button {
+  background: white;
+  color: #ff621a;
+  border: none;
+  padding: 16px 48px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Poppins", sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.cta-button:hover {
+  background: #f9fafb;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button:active {
+  transform: translateY(0);
+}
+
+/* Business Partners Section */
+.business-partners {
+  padding-top: 40px;
+  padding-bottom: 64px;
+  padding-left: 24px;
+  padding-right: 24px;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.partners-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.partners-heading {
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 32px;
+  font-family: "Poppins", sans-serif;
+  opacity: 0.9;
+}
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  align-items: center;
+  justify-items: center;
+}
+
+.partner-logo {
+  width: 100%;
+}
+
+.partner-logo img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  transition: all 0.3s;
+}
+
+/* Services Section */
+.services-section {
+  padding: 80px 0;
+  background-image: url("/bannerbg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #ffffff !important;
+  position: relative;
+  isolation: isolate;
+}
+
+.services-section::before {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.services-section::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.services-wrapper {
+  width: 100%;
+}
+
+/* Business Data Section */
+.business-data-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+.business-data-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 1024px) {
+  .left-section {
+    padding-top: 0;
+    padding-right: 24px;
+    padding-bottom: 20px;
+    padding-left: 24px;
+    margin-top: -40px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .right-section {
+    padding-top: 0;
+    padding-right: 24px;
+    padding-bottom: 20px;
+    padding-left: 24px;
+    margin-top: -40px;
+  }
+
+  .form-container {
+    padding: 16px 12px;
+    min-height: 300px;
+  }
+
+  .partners-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@media (max-width: 768px) {
+  .app-header {
+    padding: 16px;
+  }
+
+  .header-logo {
+    height: 28px;
+  }
+
+  .header-contact {
+    display: none;
+  }
+
+  .left-section {
+    padding-top: 0;
+    padding-right: 16px;
+    padding-bottom: 16px;
+    padding-left: 16px;
+    margin-top: -30px;
+  }
+
+  .industry-recognition {
+    display: none;
+  }
+
+  .badges-container {
+    display: none;
+  }
+
+  .about-heading {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+
+  .about-text-container {
+    margin-bottom: 32px;
+  }
+
+  .about-text {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .industry-recognition {
+    font-size: 12px;
+    margin-bottom: 16px;
+  }
+
+  .badges-container {
+    gap: 12px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .badge {
+    width: 140px;
+    min-width: 140px;
+    padding: 10px;
+  }
+
+  .badge-icon {
+    font-size: 20px;
+  }
+
+  .badge-icon-large {
+    font-size: 24px;
+  }
+
+  .badge-label {
+    font-size: 9px;
+    padding: 2px 8px;
+  }
+
+  .badge-text {
+    font-size: 9px;
+  }
+
+  .badge-description {
+    font-size: 8px;
+  }
+
+  .right-section {
+    padding-top: 0;
+    padding-right: 16px;
+    padding-bottom: 16px;
+    padding-left: 16px;
+    margin-top: -30px;
+  }
+
+  .form-container {
+    padding: 16px 10px;
+    min-height: 300px;
+  }
+
+  .form-title {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  .form {
+    gap: 20px;
+  }
+
+  .privacy-text {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .cta-section {
+    padding: 48px 16px;
+  }
+
+  .cta-title {
+    font-size: 32px;
+  }
+
+  .cta-subtitle {
+    font-size: 22px;
+  }
+
+  .cta-description {
+    font-size: 16px;
+  }
+
+  .cta-button {
+    padding: 14px 40px;
+    font-size: 16px;
+  }
+
+  .business-partners {
+    padding-top: 24px;
+    padding-bottom: 48px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .partners-heading {
+    font-size: 18px;
+    margin-bottom: 24px;
+  }
+
+  .partners-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .services-section {
+    padding: 20px 0;
+  }
+
+  .business-data-section {
+    margin-top: -20px;
+  }
+
+  .curve-image {
+    opacity: 0.1;
   }
 }
 
-.card {
-  padding: 2em;
+@media (max-width: 480px) {
+  .header-logo {
+    height: 24px;
+  }
+
+  .cta-section {
+    padding: 32px 12px;
+  }
+
+  .cta-title {
+    font-size: 24px;
+  }
+
+  .cta-subtitle {
+    font-size: 18px;
+  }
+
+  .cta-description {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+  .cta-button {
+    padding: 12px 32px;
+    font-size: 14px;
+  }
+
+  .left-section {
+    padding: 24px 12px;
+  }
+
+  .about-heading {
+    font-size: 18px;
+  }
+
+  .about-text {
+    font-size: 13px;
+  }
+
+  .badge {
+    max-width: 140px;
+    padding: 10px;
+  }
+
+  .form-container {
+    padding: 16px 10px;
+    min-height: 380px;
+  }
+
+  .form-title {
+    font-size: 16px;
+  }
+
+  .partners-heading {
+    font-size: 16px;
+  }
+
+  .partners-grid {
+    gap: 16px;
+  }
+
+  .services-section {
+    padding: 32px 0;
+  }
 }
 
-.read-the-docs {
-  color: #888;
+/* Desktop Large Screens */
+@media (min-width: 1024px) {
+  .app-header {
+    padding: 24px 48px;
+  }
+
+  .header-logo {
+    height: 40px;
+  }
+
+  .main-content {
+    flex-direction: row;
+  }
+
+  .left-section {
+    width: 50%;
+    padding-top: 10;
+    padding-right: 64px;
+    padding-bottom: 80px;
+    padding-left: 80px;
+    margin-top: 20px;
+  }
+
+  .about-heading {
+    font-size: 30px;
+  }
+
+  .right-section {
+    width: 50%;
+    padding-top: -10;
+    padding-right: 32px;
+    padding-bottom: 20px;
+    padding-left: 80px;
+    margin-top: -40px;
+    padding: 80px 32px;
+  }
+
+  .form-container {
+    padding: 40px 48px;
+  }
+
+  .partners-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
 }
