@@ -4,32 +4,26 @@ import "./Testimonials.css";
 const testimonials = [
   {
     id: 1,
-    name: "Mr. Jai",
-    position: "Client",
+    name: "Operations Manager",
+    position: "Mid-Size IT Company (India)",
     content:
-      "Working with AscentIQ Global was a game-changer for our company! Their dedicated team took the time to understand our unique hiring needs and provided us with exceptional talent that perfectly matched our requirements.",
+      "Working with Ascent IQ has been a really positive experience for us. We partnered with them during a busy project cycle, and they genuinely made the hiring process smoother. Their team took the time to understand what we were looking for and shared candidates who actually fit — not just on skills but also on how they'd work with our team. They were quick to respond, flexible with last-minute changes, and helped us close several IT and non-IT roles on time. Overall, a dependable and easy-to-work-with recruitment partner.",
     rating: 5,
   },
   {
     id: 2,
-    name: "Ishaan",
-    position: "Client",
+    name: "HR Manager",
+    position: "Growing Tech Firm (India)",
     content:
-      "I can't express how impressed I am with the exceptional service provided by AscentIQ Global team. They not only presented us with highly qualified candidates but also ensured a smooth and efficient recruitment process from start to finish.",
-    rating: 5,
-  },
-  {
-    id: 3,
-    name: "Anjali",
-    position: "Client",
-    content:
-      "Kudos to the team at AscentIQ Global! Their personalized approach and dedication to understanding our company's values and goals made the recruitment process seamless. We found the perfect candidates who align with our culture.",
+      "Ascent IQ has consistently supported our hiring needs with professionalism and clarity. We were struggling to find the right talent for a few niche roles, and their team stepped in with a solid understanding of the market. The candidates they shared were relevant, well-screened, and aligned with what we needed. Communication was smooth throughout, and they kept us updated at every stage. It's been a dependable partnership, and we look forward to working with them again.",
     rating: 5,
   },
 ];
 
 function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [expandedTestimonials, setExpandedTestimonials] = useState({});
+  const TRUNCATE_LENGTH = 150;
 
   const nextTestimonial = () => {
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);
@@ -41,6 +35,21 @@ function Testimonials() {
 
   const goToTestimonial = (index) => {
     setCurrentIndex(index);
+  };
+
+  const toggleExpand = (testimonialId) => {
+    setExpandedTestimonials((prev) => ({
+      ...prev,
+      [testimonialId]: !prev[testimonialId],
+    }));
+  };
+
+  const getTruncatedContent = (content, testimonialId) => {
+    const isExpanded = expandedTestimonials[testimonialId];
+    if (isExpanded || content.length <= TRUNCATE_LENGTH) {
+      return content;
+    }
+    return content.substring(0, TRUNCATE_LENGTH) + "...";
   };
 
   return (
@@ -69,7 +78,19 @@ function Testimonials() {
                     <span key={i} className="star">★</span>
                   ))}
                 </div>
-                <p className="testimonial-content">"{testimonial.content}"</p>
+                <div className="testimonial-content-wrapper">
+                  <p className="testimonial-content">
+                    "{getTruncatedContent(testimonial.content, testimonial.id)}"
+                  </p>
+                  {testimonial.content.length > TRUNCATE_LENGTH && (
+                    <button
+                      className="testimonial-read-more"
+                      onClick={() => toggleExpand(testimonial.id)}
+                    >
+                      {expandedTestimonials[testimonial.id] ? "Read Less" : "Read More"}
+                    </button>
+                  )}
+                </div>
                 <div className="testimonial-author">
                   <h4 className="testimonial-name">{testimonial.name}</h4>
                   <p className="testimonial-position">{testimonial.position}</p>

@@ -185,10 +185,11 @@
 /* Business Data Image */
 .services-business-data {
   width: 100%;
-
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 0;
+  padding-top: 0;
 }
 
 .services-business-data-image {
@@ -222,12 +223,19 @@
   }
 
   .services-content-wrapper {
-    min-height: 300px;
+    min-height: auto;
+    margin-bottom: 0;
+    padding-bottom: 0;
   }
 
   .services-image {
     width: 90%;
     border-radius: 0 0 8px 8px;
+  }
+
+  .services-business-data {
+    margin-top: 0;
+    padding-top: 24px;
   }
 
   .services-title {
@@ -262,11 +270,18 @@
   }
 
   .services-content-wrapper {
-    min-height: 250px;
+    min-height: auto;
+    margin-bottom: 0;
+    padding-bottom: 0;
   }
 
   .services-image {
     width: 95%;
+  }
+
+  .services-business-data {
+    margin-top: 0;
+    padding-top: 20px;
   }
 
   .services-title {

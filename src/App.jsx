@@ -12,6 +12,8 @@ import { MdEmail } from "react-icons/md";
 import logo from "/logo2.png";
 import curve1 from "/bannercurves1.png";
 import curve2 from "/bannercurves2.png";
+import infogainLogo from "/infogain_logo.jpeg";
+import coforgeLogo from "/coforge.png";
 import Services from "./Services";
 import Testimonials from "./Testimonials";
 import "./App.css";
@@ -197,20 +199,24 @@ function App() {
           {/* Body Text */}
           <div className="about-text-container">
             <p className="about-text">
-              With a legacy spanning over a decade, AscentIQ Global has emerged
-              as a pivotal player in the recruitment landscape, showcasing a
-              robust presence nationally and internationally.
+              With a strong legacy spanning over a decade, AscentIQ Global has emerged
+              as a trusted and influential leader in the recruitment and staffing
+              landscape, establishing a solid footprint both nationally and
+              internationally.
             </p>
             <p className="about-text">
-              Our enduring commitment revolves around offering comprehensive HR
-              solutions, encompassing the entire spectrum from recruitment and
-              turnkey staffing to HR services and executive search.
+              We specialize in delivering end-to-end HR solutions, covering
+              everything from permanent recruitment, turnkey staffing, bulk hiring,
+              contract workforce solutions, and HR consulting to high-level
+              executive search across diverse industries.
             </p>
             <p className="about-text" style={{ marginBottom: 0 }}>
-              The backbone of our success lies in the collective expertise of
-              seasoned professionals who not only facilitate job placements but
-              also provide invaluable guidance in establishing effective HR
-              units within organizations.
+              Our strength lies in a highly experienced team of HR professionals
+              who not only enable organizations to hire the right talent but also
+              support them in building strong, future-ready HR frameworks. By
+              combining strategic insight, industry expertise, and global standards,
+              AscentIQ Global continues to transform workforce solutions and
+              empower businesses worldwide.
             </p>
           </div>
 
@@ -277,6 +283,30 @@ function App() {
         <div className="right-section">
           <div className="form-wrapper" id="contact-form">
             <div className="form-container">
+              <div className="form-logo-rating">
+                <div className="form-logo-item">
+                  <img
+                    src={infogainLogo}
+                    alt="Infogain Logo"
+                    className="form-logo"
+                  />
+                  <div className="form-rating">
+                    <span className="rating-stars">★★★★★</span>
+                    <span className="rating-value">4.7/5</span>
+                  </div>
+                </div>
+                <div className="form-logo-item">
+                  <img
+                    src={coforgeLogo}
+                    alt="Coforge Logo"
+                    className="form-logo"
+                  />
+                  <div className="form-rating">
+                    <span className="rating-stars">★★★★★</span>
+                    <span className="rating-value">4.7/5</span>
+                  </div>
+                </div>
+              </div>
               <h3 className="form-title">SCHEDULE A DEMO</h3>
 
               <form onSubmit={handleSubmit} className="form">
