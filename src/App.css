@@ -613,9 +613,27 @@ p.privacy-text,
     grid-template-columns: repeat(3, 1fr);
   }
 
+  .about-heading {
+    text-align: center;
+  }
+
+  .about-text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-text {
+    text-align: center;
+  }
+
+  .industry-recognition {
+    text-align: center;
+  }
+
   .badges-container {
     gap: 8px;
-    justify-content: flex-start;
+    justify-content: center;
     margin-bottom: 32px;
     overflow-x: auto;
   }
@@ -714,26 +732,32 @@ p.privacy-text,
   .about-heading {
     font-size: 20px;
     margin-bottom: 12px;
+    text-align: center;
   }
 
   .about-text-container {
     margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .about-text {
     font-size: 14px;
     margin-bottom: 12px;
+    text-align: center;
   }
 
   .industry-recognition {
     font-size: 12px;
     margin-bottom: 16px;
     display: block;
+    text-align: center;
   }
 
   .badges-container {
     gap: 6px;
-    justify-content: flex-start;
+    justify-content: center;
     margin-bottom: 32px;
     overflow-x: auto;
   }
@@ -939,14 +963,27 @@ p.privacy-text,
 
   .about-heading {
     font-size: 18px;
+    text-align: center;
+  }
+
+  .about-text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .about-text {
     font-size: 13px;
+    text-align: center;
+  }
+
+  .industry-recognition {
+    text-align: center;
   }
 
   .badges-container {
     gap: 6px;
+    justify-content: center;
     margin-bottom: 32px;
     overflow-x: auto;
   }
