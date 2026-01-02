@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   TextField,
   Button,
@@ -7,6 +8,7 @@ import {
   FormControl,
   InputLabel,
 } from "@mui/material";
+import { MdEmail } from "react-icons/md";
 import logo from "/logo2.png";
 import curve1 from "/bannercurves1.png";
 import curve2 from "/bannercurves2.png";
@@ -164,8 +166,15 @@ function App() {
         <div className="header-content">
           <img src={logo} alt="AscentIQ Logo" className="header-logo" />
           <div className="header-contact">
-            <span className="header-email">✉ help@ascentiqservices.com</span>
-            <span className="header-phone">📞 Phone Number: 0120-6459900</span>
+            <span className="header-address">
+              📍 Knowledge Boulevard, 7th Floor, Block B, Sector 62, Noida,
+              Uttar Pradesh: 201301
+            </span>
+            <span className="header-email">
+              <MdEmail />
+              help@ascentiqservices.com
+            </span>
+            <span className="header-phone">📞 Phone Number: 8595581268</span>
           </div>
         </div>
       </header>
@@ -365,9 +374,9 @@ function App() {
                   By submitting this form you agree to receive email, text and
                   promotional communications from AscentIQ related to products
                   and services in accordance with AscentIQ's{" "}
-                  <a href="#" className="privacy-link">
+                  <Link to="/privacy" className="privacy-link">
                     privacy policy
-                  </a>
+                  </Link>
                   .
                 </p>
 
@@ -465,29 +474,44 @@ function App() {
         </div>
       </div>
 
-      {/* Business Data Image */}
-      <div className="business-data-section">
-        <img
-          src="/bussinessdata.png"
-          alt="Business Data"
-          className="business-data-image"
-        />
-      </div>
-
       {/* Testimonials Section */}
       <Testimonials />
 
       {/* Call to Action Section */}
       <div className="cta-section">
-        <div className="cta-container">
-          <h2 className="cta-title">Find Your Perfect Job Match Today!</h2>
-          <h3 className="cta-subtitle">Connecting Talent, Building Careers</h3>
-          <p className="cta-description">
-            Welcome to Ascent iQ Services, where talent meets opportunity.
-          </p>
-          <button className="cta-button" onClick={scrollToForm}>
-            Connect Now
-          </button>
+        <div className="cta-wrapper">
+          {/* Mini Map with Address */}
+          <div className="cta-map-container">
+            <div className="cta-map">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.0354096457307!2d77.36299731508272!3d28.627394182421!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5456ef9ed9b%3A0x61b03f0d6d5a4c01!2sKnowledge%20Boulevard%2C%20Sector%2062%2C%20Noida%2C%20Uttar%20Pradesh%20201301!5e0!3m2!1sen!2sin!4v1704000000000!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0, borderRadius: "12px" }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Ascent iQ Office Location"
+              ></iframe>
+            </div>
+            <span className="cta-address">
+              📍 Knowledge Boulevard, 7th Floor, Block B, Sector 62, Noida,
+              Uttar Pradesh: 201301
+            </span>
+          </div>
+          {/* CTA Content */}
+          <div className="cta-container">
+            <h2 className="cta-title">Find Your Perfect Job Match Today!</h2>
+            <h3 className="cta-subtitle">
+              Connecting Talent, Building Careers
+            </h3>
+            <p className="cta-description">
+              Welcome to Ascent iQ Services, where talent meets opportunity.
+            </p>
+            <button className="cta-button" onClick={scrollToForm}>
+              Connect Now
+            </button>
+          </div>
         </div>
       </div>
     </div>

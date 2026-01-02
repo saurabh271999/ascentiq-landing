@@ -182,6 +182,22 @@
   color: #4b5563;
 }
 
+/* Business Data Image */
+.services-business-data {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.services-business-data-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
   .services-wrapper {

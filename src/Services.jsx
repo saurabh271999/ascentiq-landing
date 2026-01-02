@@ -118,6 +118,15 @@ function Services() {
             </div>
           )}
         </div>
+
+        {/* Business Data Image */}
+        <div className="services-business-data">
+          <img
+            src="/bussinessdata.png"
+            alt="Business Data"
+            className="services-business-data-image"
+          />
+        </div>
       </div>
     </div>
   );
