@@ -493,6 +493,18 @@ function App() {
                 alt="Business Partner"
               />
             </div>
+            <div className="partner-logo">
+              <img
+                src="https://www.ascentiqservices.com/clients_logo/1707467021.jpg"
+                alt="Business Partner"
+              />
+            </div>
+            <div className="partner-logo">
+              <img
+                src="https://www.ascentiqservices.com/clients_logo/1707466962.jpg"
+                alt="Business Partner"
+              />
+            </div>
           </div>
         </div>
       </div>
