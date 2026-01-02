@@ -7,7 +7,7 @@ const testimonials = [
     name: "Mr. Jai",
     position: "Client",
     content:
-      "Working with Ascent iQ was a game-changer for our company! Their dedicated team took the time to understand our unique hiring needs and provided us with exceptional talent that perfectly matched our requirements.",
+      "Working with AscentIQ Global was a game-changer for our company! Their dedicated team took the time to understand our unique hiring needs and provided us with exceptional talent that perfectly matched our requirements.",
     rating: 5,
   },
   {
@@ -15,7 +15,7 @@ const testimonials = [
     name: "Ishaan",
     position: "Client",
     content:
-      "I can't express how impressed I am with the exceptional service provided by Ascent iQ team. They not only presented us with highly qualified candidates but also ensured a smooth and efficient recruitment process from start to finish.",
+      "I can't express how impressed I am with the exceptional service provided by AscentIQ Global team. They not only presented us with highly qualified candidates but also ensured a smooth and efficient recruitment process from start to finish.",
     rating: 5,
   },
   {
@@ -23,7 +23,7 @@ const testimonials = [
     name: "Anjali",
     position: "Client",
     content:
-      "Kudos to the team at Ascent iQ Recruiters! Their personalized approach and dedication to understanding our company's values and goals made the recruitment process seamless. We found the perfect candidates who align with our culture.",
+      "Kudos to the team at AscentIQ Global! Their personalized approach and dedication to understanding our company's values and goals made the recruitment process seamless. We found the perfect candidates who align with our culture.",
     rating: 5,
   },
 ];

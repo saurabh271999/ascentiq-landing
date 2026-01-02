@@ -189,17 +189,17 @@ function App() {
 
         {/* Left Section */}
         <div className="left-section">
-          {/* About Ascent iQ Services */}
+          {/* About AscentIQ Global */}
           <div>
-            <h1 className="about-heading">About Ascent iQ Services</h1>
+            <h1 className="about-heading">AscentIQ Global</h1>
           </div>
 
           {/* Body Text */}
           <div className="about-text-container">
             <p className="about-text">
-              With a legacy spanning over a decade, Ascent iQ Staffing Solutions
-              has emerged as a pivotal player in the recruitment landscape,
-              showcasing a robust presence nationally and internationally.
+              With a legacy spanning over a decade, AscentIQ Global has emerged
+              as a pivotal player in the recruitment landscape, showcasing a
+              robust presence nationally and internationally.
             </p>
             <p className="about-text">
               Our enduring commitment revolves around offering comprehensive HR
@@ -372,8 +372,8 @@ function App() {
                 {/* Privacy Policy */}
                 <p className="privacy-text">
                   By submitting this form you agree to receive email, text and
-                  promotional communications from AscentIQ related to products
-                  and services in accordance with AscentIQ's{" "}
+                  promotional communications from AscentIQ Global related to
+                  products and services in accordance with AscentIQ Global's{" "}
                   <Link to="/privacy" className="privacy-link">
                     privacy policy
                   </Link>
@@ -491,7 +491,7 @@ function App() {
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Ascent iQ Office Location"
+                title="AscentIQ Global Office Location"
               ></iframe>
             </div>
             <span className="cta-address">
@@ -506,7 +506,7 @@ function App() {
               Connecting Talent, Building Careers
             </h3>
             <p className="cta-description">
-              Welcome to Ascent iQ Services, where talent meets opportunity.
+              Welcome to AscentIQ Global, where talent meets opportunity.
             </p>
             <button className="cta-button" onClick={scrollToForm}>
               Connect Now

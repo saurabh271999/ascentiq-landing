@@ -19,7 +19,7 @@ function PrivacyPolicy() {
           <section className="privacy-section">
             <h2 className="privacy-section-title">1. Introduction</h2>
             <p className="privacy-text">
-              Welcome to Ascent iQ Services ("we," "our," or "us"). We are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
+              Welcome to AscentIQ Global ("we," "our," or "us"). We are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
             </p>
           </section>
 
@@ -119,7 +119,7 @@ function PrivacyPolicy() {
               If you have any questions or concerns about this Privacy Policy or our data practices, please contact us:
             </p>
             <div className="privacy-contact">
-              <p><strong>Ascent iQ Services</strong></p>
+              <p><strong>AscentIQ Global</strong></p>
               <p>📍 Knowledge Boulevard, 7th Floor, Block B, Sector 62, Noida, Uttar Pradesh: 201301</p>
               <p>📧 Email: help@ascentiqservices.com</p>
               <p>📞 Phone: 8595581268</p>
