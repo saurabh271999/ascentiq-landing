@@ -199,24 +199,24 @@ function App() {
           {/* Body Text */}
           <div className="about-text-container">
             <p className="about-text">
-              With a strong legacy spanning over a decade, AscentIQ Global has emerged
-              as a trusted and influential leader in the recruitment and staffing
-              landscape, establishing a solid footprint both nationally and
-              internationally.
+              With a strong legacy spanning over a decade, AscentIQ Global has
+              emerged as a trusted and influential leader in the recruitment and
+              staffing landscape, establishing a solid footprint both nationally
+              and internationally.
             </p>
             <p className="about-text">
               We specialize in delivering end-to-end HR solutions, covering
-              everything from permanent recruitment, turnkey staffing, bulk hiring,
-              contract workforce solutions, and HR consulting to high-level
-              executive search across diverse industries.
+              everything from permanent recruitment, turnkey staffing, bulk
+              hiring, contract workforce solutions, and HR consulting to
+              high-level executive search across diverse industries.
             </p>
             <p className="about-text" style={{ marginBottom: 0 }}>
               Our strength lies in a highly experienced team of HR professionals
-              who not only enable organizations to hire the right talent but also
-              support them in building strong, future-ready HR frameworks. By
-              combining strategic insight, industry expertise, and global standards,
-              AscentIQ Global continues to transform workforce solutions and
-              empower businesses worldwide.
+              who not only enable organizations to hire the right talent but
+              also support them in building strong, future-ready HR frameworks.
+              By combining strategic insight, industry expertise, and global
+              standards, AscentIQ Global continues to transform workforce
+              solutions and empower businesses worldwide.
             </p>
           </div>
 
@@ -303,7 +303,7 @@ function App() {
                   />
                   <div className="form-rating">
                     <span className="rating-stars">★★★★★</span>
-                    <span className="rating-value">4.7/5</span>
+                    <span className="rating-value">4.3/5</span>
                   </div>
                 </div>
               </div>
