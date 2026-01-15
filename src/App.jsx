@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   TextField,
   Button,
@@ -19,6 +19,7 @@ import Testimonials from "./Testimonials";
 import "./App.css";
 
 function App() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     "Full Name": "",
     workEmail: "",
@@ -76,7 +77,6 @@ function App() {
       if (response.ok) {
         setSubmitStatus("success");
         setSubmitMessage("Thank you! Your message has been sent successfully.");
-        // Reset form
         setFormData({
           "Full Name": "",
           workEmail: "",
@@ -85,6 +85,8 @@ function App() {
           companySize: "",
           helpText: "",
         });
+        // Redirect to Thank You page
+        navigate("/thank-you");
       } else {
         setSubmitStatus("error");
         setSubmitMessage(
@@ -413,11 +415,10 @@ function App() {
                 {/* Status Message */}
                 {submitStatus && (
                   <div
-                    className={`status-message ${
-                      submitStatus === "success"
+                    className={`status-message ${submitStatus === "success"
                         ? "status-success"
                         : "status-error"
-                    }`}
+                      }`}
                   >
                     {submitMessage}
                   </div>
