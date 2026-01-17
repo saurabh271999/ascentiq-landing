@@ -16,6 +16,7 @@ import infogainLogo from "/infogain_logo.jpeg";
 import coforgeLogo from "/coforge.png";
 import Services from "./Services";
 import Testimonials from "./Testimonials";
+import { sendContactEmail } from "./services/emailService";
 import "./App.css";
 
 function App() {
@@ -54,48 +55,24 @@ function App() {
     setSubmitMessage("");
 
     try {
-      const response = await fetch(
-        "https://saneindia-backend.onrender.com/api/v1/email/contact",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name: formData["Full Name"],
-            email: formData.workEmail,
-            phone: formData.phone,
-            companyName: formData.companyName,
-            companySize: formData.companySize,
-            message: formData.helpText,
-          }),
-        }
-      );
+      // Use local API service instead of remote one
+      await sendContactEmail(formData);
 
-      const data = await response.json();
-
-      if (response.ok) {
-        setSubmitStatus("success");
-        setSubmitMessage("Thank you! Your message has been sent successfully.");
-        setFormData({
-          "Full Name": "",
-          workEmail: "",
-          phone: "",
-          companyName: "",
-          companySize: "",
-          helpText: "",
-        });
-        // Redirect to Thank You page
-        navigate("/thank-you");
-      } else {
-        setSubmitStatus("error");
-        setSubmitMessage(
-          data.message || "Failed to send message. Please try again."
-        );
-      }
+      setSubmitStatus("success");
+      setSubmitMessage("Thank you! Your message has been sent successfully.");
+      setFormData({
+        "Full Name": "",
+        workEmail: "",
+        phone: "",
+        companyName: "",
+        companySize: "",
+        helpText: "",
+      });
+      // Redirect to Thank You page
+      navigate("/thank-you");
     } catch (error) {
       setSubmitStatus("error");
-      setSubmitMessage("An error occurred. Please try again later.");
+      setSubmitMessage(error.message || "An error occurred. Please try again later.");
       console.error("Error submitting form:", error);
     } finally {
       setIsSubmitting(false);
