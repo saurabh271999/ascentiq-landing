@@ -122,7 +122,7 @@ function PrivacyPolicy() {
               <p><strong>AscentIQ Global</strong></p>
               <p>📍 Knowledge Boulevard, 7th Floor, Block B, Sector 62, Noida, Uttar Pradesh: 201301</p>
               <p>📧 Email: help@ascentiqservices.com</p>
-              <p>📞 Phone: 8595581268</p>
+            <a href="tel:8595581268">  <p>📞 Phone: 8595581268</p></a>
             </div>
           </section>
 

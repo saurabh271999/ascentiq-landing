@@ -151,11 +151,11 @@ function App() {
               📍 Knowledge Boulevard, 7th Floor, Block B, Sector 62, Noida,
               Uttar Pradesh: 201301
             </span>
-            <span className="header-email">
+           <a href="mailto:help@ascentiqservices.com"> <span className="header-email">
               <MdEmail />
               help@ascentiqservices.com
-            </span>
-            <span className="header-phone">📞 Phone Number: 8595581268</span>
+            </span></a>
+           <a href="tel:8595581268"> <span className="header-phone">📞 Phone Number: 8595581268</span></a>
           </div>
         </div>
       </header>
